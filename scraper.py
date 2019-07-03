@@ -3,7 +3,6 @@ import requests
 
 class scraper: 
 
-    
     def stripString(str1):
         a = "!@#$%^&*()><:;[]|\?/~`'. "
         for b in a:
@@ -12,6 +11,8 @@ class scraper:
         return str1.lower()
 
     def getLyrics(song, name):
+        song = scraper.stripString(song)
+        name = scraper.stripString(name)
         url = "https://www.azlyrics.com/lyrics/{}/{}.html".format(name.lower(), song.lower())
         req = requests.get(url)
         soup = BeautifulSoup(req.content, 'lxml')
@@ -36,10 +37,9 @@ class scraper:
 scrap = scraper
 artistName = 'eminem'
 songs = scrap.getSongs(artistName)
-dict = {}
+
 print(songs[3])
-song = scrap.stripString(songs[3])
-print(scrap.getLyrics(song, artistName))
+print(scrap.getLyrics(songs[3], artistName))
 
 
 

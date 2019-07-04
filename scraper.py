@@ -28,7 +28,7 @@ class scraper:
         songsList = []
 
         for title in soup.find_all(target="_blank"):
-            songsList.append(stripString(str(title.text)))
+            songsList.append(scraper.stripString(str(title.text)))
 
         return songsList
 
@@ -37,9 +37,8 @@ class scraper:
 scrap = scraper
 artistName = 'eminem'
 songs = scrap.getSongs(artistName)
-
-print(songs[3])
-print(scrap.getLyrics(songs[3], artistName))
+print(songs[0])
+print(scrap.getLyrics(songs[0], artistName))
 
 
 

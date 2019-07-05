@@ -1,7 +1,7 @@
 from scraper import scraper as scrap
 
-em_lyr = open("eminem-lyrics", "w")
-drake_lyr = open("drake-lyrics", "w")
+em_lyr = open("eminem-lyrics1", "w")
+drake_lyr = open("drake-lyrics1", "w")
 
 eminem_songs = scrap.getSongs('eminem')
 drake_songs = scrap.getSongs('drake') 

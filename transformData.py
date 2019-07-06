@@ -19,7 +19,7 @@ def printLyr(filepath):
     return lyrics
 
 
-filepath_eminem = "C:\Sakshum\MY STUFF\Random\Code Bits\eminem-lyrics.txt"
+filepath_eminem = "C:\Sakshum\MY STUFF\Random\Code Bits\eminem-lyrics-short.txt"
 filepath_drake = "C:\Sakshum\MY STUFF\Random\Code Bits\drake-lyrics.txt"
 
 eminem_list = printLyr(filepath_eminem)
@@ -27,6 +27,9 @@ drake_list = printLyr(filepath_drake)
 
 file = open("songsFormatted", "w+")
 for song in eminem_list:
+    file.write(song + "\n"*2)
+
+
 
 
 

@@ -1,3 +1,8 @@
+import pickle
+import _pickle as cPickle
+import numpy
+
+
 def stripString(str1):
         a = "!@#$%^&*()><:;,[]|\?/~`'."
         for b in a:
@@ -33,25 +38,43 @@ def printLyr_d(filepath):
     file.close()
     return lyrics
 
+def file_to_pickle():
+    song_file = open("songsFormatted", "r")
+    rapper_file = open("rappers", "r")
 
-filepath_eminem = "C:\\Users\Sakshum\Documents\GitHub\Lyric Project\Lyric-Classifier\eminem-lyrics"
-eminem_list = printLyr(filepath_eminem)
+    rapper_list = [str(line.replace("\n", "")) for line in rapper_file.readlines()]
+    song_list = [str(line.replace("\n", "")) for line in song_file.readlines()]
 
-filepath_drake = "C:\\Users\Sakshum\Documents\GitHub\Lyric Project\Lyric-Classifier\drake-lyrics2"
-drake_list = printLyr_d(filepath_drake)
+    pickle.dump(rapper_list, open("rapper_pickle.pkl", "wb"))
+    pickle.dump(song_list, open("songs_pickle.pkl", "wb"))
+    
+file_to_pickle()
 
-file = open("songsFormatted", "w+")
-file_rappers = open("rappers", "w+")
-for song in eminem_list:
-    file.write(song + "\n")
-    file_rappers.write(str(0) + "\n")
 
-for song in drake_list:
-    file.write(song + "\n")
-    file_rappers.write(str(1) + "\n")
+# code just to save output to read later
 
-file.close()
-file_rappers.close()
+# filepath_eminem = "C:\\Users\Sakshum\Documents\GitHub\Lyric Project\Lyric-Classifier\eminem-lyrics"
+# eminem_list = printLyr(filepath_eminem)
+
+# filepath_drake = "C:\\Users\Sakshum\Documents\GitHub\Lyric Project\Lyric-Classifier\drake-lyrics2"
+# drake_list = printLyr_d(filepath_drake)
+
+
+# file = open("songsFormatted", "w+")
+# file_rappers = open("rappers", "w+")
+
+# for song in eminem_list:
+#     file.write(song + "\n")
+#     file_rappers.write(str(0) + "\n")
+
+# for song in drake_list:
+#     file.write(song + "\n")
+#     file_rappers.write(str(1) + "\n")
+
+# file.close()
+# file_rappers.close()
+
+
 
 
 

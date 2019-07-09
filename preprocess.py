@@ -9,7 +9,7 @@ from sklearn.feature_selection import SelectPercentile, f_classif
 class preprocess:
 
 
-    def vectorize(words_file = "rapper_pickle.pkl", authors_file="songs_pickle.pkl"):
+    def vectorize(words_file = "songs_pickle.pkl", authors_file="rapper_pickle.pkl"):
 
         authors_file_handler = open(authors_file, "rb")
         authors = pickle.load(authors_file_handler)

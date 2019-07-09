@@ -23,11 +23,9 @@ def preprocess(words_file = "rapper_pickle.pkl", authors_file="songs_pickle.pkl"
 
 
 
-    vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5,
-                                 stop_words='english')
+    vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5, stop_words='english')
     features_train_transformed = vectorizer.fit_transform(features_train)
     features_test_transformed  = vectorizer.transform(features_test)
-
 
 
     selector = SelectPercentile(f_classif, percentile=10)
